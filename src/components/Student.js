@@ -47,7 +47,6 @@ export default function Student(props) {
         handleToggle={setDetails}
         prop1={<>+</>}
         prop2={<>-</>}
-
       />
 
     </li>

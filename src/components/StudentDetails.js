@@ -2,7 +2,7 @@ export default function StudentDetails(props) {
 
   const {email, company, skill, grades} = props;
 
-  const averageGrade = grades.reduce((a, b) => a * 1 + b * 1) / grades.length;
+  const averageGrade = (grades ? grades.reduce((a, b) => a * 1 + b * 1) / grades.length : "N/A");
 
   return (
     <div className="student-details">

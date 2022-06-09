@@ -2,17 +2,17 @@ export default function Grades(props) {
 
   const { grades, withDetails } = props;
 
-  const testResults = grades.map((test, i) =>
-  <tr key={i}>
-    <th>
-      Test {i + 1}:
-    </th>
-    <th>
-      {test}%
-    </th>
-  </tr>
+  const testResults = (grades ? grades.map((test, i) =>
+    <tr key={i}>
+      <th>
+        Test {i + 1}:
+      </th>
+      <th>
+        {test}%
+      </th>
+    </tr>
+  ) : null);
 
-)
   return (
 
     <div className="student-grades">

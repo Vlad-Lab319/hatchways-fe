@@ -1,15 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import { unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
+
 import App from './components/App';
-import StudentList from './components/StudentsList';
 import ToggleButton from './components/ToggleButton';
-// import useApplicationData from '.hooks/useApplicationData';
 
 let container = null;
 beforeEach(() => {
   // setup a DOM element as a render target
   container = document.createElement("div");
-  document.body.appendChild(container);});
+  document.body.appendChild(container);
+});
 afterEach(() => {
   // cleanup on exiting
   unmountComponentAtNode(container);
@@ -17,14 +18,34 @@ afterEach(() => {
   container = null;
 });
 
-test('renders learn react link', () => {
+test('renders header on page load', () => {
   render(<App />);
-  const linkElement = screen.getByText(/students/i);
-  expect(linkElement).toBeInTheDocument();
+  const headerElement = screen.getByText(/students/i);
+  expect(headerElement).toBeInTheDocument();
 });
 
-// test('renders learn react link', () => {
-//   render(<StudentList />);
-//   const linkElement = screen.getByText(/search by/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+it("changes value when clicked", () => {
+
+  const onChange = jest.fn();
+
+  act(() => {
+    render(<ToggleButton handleToggle={onChange} toggle={false} prop1={<>+</>} prop2={<>-</>} />, container);
+  });
+
+  // get a hold of the button element, and trigger some clicks on it
+  const button = document.querySelector("button");
+  expect(button.innerHTML).toBe("+");
+
+  act(() => {
+    button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
+  expect(onChange).toHaveBeenCalledTimes(1);
+
+  act(() => {
+    for (let i = 0; i < 5; i++) {
+      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    }
+  });
+
+  expect(onChange).toHaveBeenCalledTimes(6);
+});

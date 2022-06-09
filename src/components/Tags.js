@@ -22,12 +22,12 @@ export default function Tags(props) {
     setTags(newTags);
   }
 
-  const tagsToDisplay = tags[id].map((tag, i) =>
+  const tagsToDisplay = (tags ? tags[id].map((tag, i) =>
     <div className="tag-item" key={i}>
       <span className="tag-text">{tag}</span >
       <span className="tag-close" onClick={() => removeTag(i)}>&times;</span>
     </div >
-  )
+   ) : null)
 
   return (
     <>

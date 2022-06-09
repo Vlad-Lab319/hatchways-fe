@@ -2,6 +2,8 @@ export default function ToggleButton(props) {
 
   const {toggle, handleToggle, className, prop1, prop2} = props;
 
+  let buttonState = false;
+
   const toggleProps = () => {
     handleToggle(!toggle);
   }

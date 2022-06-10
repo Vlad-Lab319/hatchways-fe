@@ -46,3 +46,17 @@
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (max-width: 380px) {
+  html {
+    font-size: 12px;
+  }
+
+  .App-header {
+    margin-top: 0;
+    width: 100%;
+    border-radius: 0px;
+    position: fixed;
+  }
+
+}

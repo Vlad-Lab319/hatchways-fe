@@ -28,7 +28,7 @@ export default function StudentsList(props) {
       if (!searchByTagValue) {
         return student;
       } else if (
-        tags[student.id].find(tag => tag.includes(searchByTagValue))
+        tags[student.id].find(tag => tag.toLowerCase().includes(searchByTagValue))
       ) {
         return student;
       }

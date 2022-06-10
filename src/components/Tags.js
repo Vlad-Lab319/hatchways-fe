@@ -30,7 +30,7 @@ export default function Tags(props) {
    ) : null)
 
   return (
-    <>
+    <div className="student-tags-container">
       <div className="student-tags">
         {tagsToDisplay}
       </div>
@@ -44,6 +44,6 @@ export default function Tags(props) {
           onChange={e => setInput(e.target.value)}
         />
       </form>
-    </>
+    </div>
   );
 }

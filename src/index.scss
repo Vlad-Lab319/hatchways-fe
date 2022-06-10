@@ -194,20 +194,8 @@ main {
 }
 
 
+
 @media only screen and (max-width: 960px) {
-  html {
-    font-size: 10px;
-  }
-
-  main {
-    flex-direction: column;
-  }
-
-
-
-}
-
-@media only screen and (max-width: 380px) {
   html {
     font-size: 12px;
   }
@@ -217,7 +205,7 @@ main {
     flex-direction: column;
     min-width: 240px;
   }
-
+  
   main {
     // display:none;
     margin-top: vh;
@@ -225,25 +213,25 @@ main {
     // border-radius: 1px;
     position: fixed;
   }
-
+  
   .student {
     flex-direction: column;
 
     &-list {
       border-radius: 10px;
     }
-
+    
     &-search {
       // width: 90%;
       border-radius: 10px;
     }
-
+    
     &-img, &-name, &-info, &-details, &-tags, &-grades {
       margin-left: 0;
       align-self: center;
-
+      
     }
-
+    
     &-grades {
       width: 100%;
       &-button {
@@ -251,16 +239,16 @@ main {
         margin-right: 0.5em;
         color: red;
       }
-
+      
       table {
         table-layout: inherit;
         width: 100%;
         text-align: left;
       }
     }
-
+    
     &-tags {
-
+      
       &-container {
         display: flex;
         flex-direction: column;
@@ -278,6 +266,14 @@ main {
         }
       }
     }
+  }
+  
+}
+
+@media only screen and (max-width: 380px) {
+
+  html {
+    font-size: 14px;
   }
 
 }
